@@ -1,0 +1,37 @@
+<div class="wrapper">
+    <div class="row">
+
+        {%- for key, restaurant in pagination -%}
+
+        <span class="col-md-4 col-xs-12">
+            <div class="result-search">
+                <div class="show-hover"><h5><img src={{ asset('bundles/bloggerblog/img/avatar-resto.jpg') }} alt=""></h5></div>
+                <div class="row">
+                    <span class="col-md-10 col-xs-12">
+                        <h4>{{ dump(restaurant.author) }}</h4>
+                        {#<p class="marron">{{ restaurant.typeCuisine }}</p>#}
+                        {#<h6>{{ restaurant.codePostal }} {{ restaurant.ville }}</h6>#}
+                    </span> 
+                    <span class="col-md-2 col-xs-12">
+                        <div class="no-float">
+                            <img src={{ asset('bundles/bloggerblog/img/type-cuisine-1.png') }} class="pull-right" style="margin:0 0 13px 0" alt="" />
+                            <a href="#"><img src={{ asset('bundles/bundlesapp/img/to-space.png') }} class="pull-right" alt="" /></a>
+                        </div>
+                    </span>
+                </div>
+            </div>
+        </span>
+
+        {%- endfor -%}
+
+
+
+
+        <span class="col-xs-12 clearfix">
+
+            {{ knp_pagination_render(pagination) }}
+
+
+        </span>                            
+    </div><!-- row -->
+</div><!-- wrapper inner -->

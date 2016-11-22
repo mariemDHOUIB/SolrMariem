@@ -1,0 +1,9 @@
+
+
+    <form action="{{ path('search') }}" method="POST" class="form-search">
+        {{ form_widget(form.keySearch, { 'id': 'search' }) }}
+        <span class="input-group-btn"><button class="btn btn-info" type="submit"><span class="glyphicon glyphicon-search">Rechercher</span></button></span>
+        {{ form_rest( form ) }}
+    </form>
+
+

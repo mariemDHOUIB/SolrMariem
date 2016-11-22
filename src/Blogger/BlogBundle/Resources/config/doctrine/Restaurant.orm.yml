@@ -1,0 +1,21 @@
+Blogger\BlogBundle\Entity\Restaurant:
+    type: entity
+    table: null
+    repositoryClass: Blogger\BlogBundle\Entity\RestaurantRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        plats:
+            type: string
+            length: 255
+        nomRestaurant:
+            type: string
+            length: 255
+        ville:
+            type: string
+            length: 255
+    lifecycleCallbacks: {  }

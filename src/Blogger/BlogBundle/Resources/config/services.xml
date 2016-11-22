@@ -1,0 +1,42 @@
+<?xml version="1.0" ?>
+<container xmlns="http://symfony.com/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <parameters>
+        <parameter key="blogger_blog.parameter_em.class">Blogger\BlogBundle\Entity\Manager\ParameterManager</parameter>
+        <parameter key="blogger_blog.search.class">Blogger\BlogBundle\Manager\Search</parameter>
+    </parameters>
+
+    <services>
+
+        <service id="blogger_blog.parameter_manager" class="%blogger_blog.parameter_em.class%">
+            <argument type="service" id="doctrine.orm.default_entity_manager" />
+            <argument type="service" id="service_container" />
+        </service>
+
+        <!-- Manager -->
+
+            <service id="restaurantmanager" class="Blogger\BlogBundle\Manager\RestaurantManager">
+
+            </service>
+
+
+
+        <service id="news.post.manager" class="Bundles\NewsBundle\Entity\Manager\PostManager">
+            <argument type="service" id="doctrine.orm.entity_manager"/>
+        </service>
+
+        <service id="media.media.manager" class="Bundles\MediaBundle\Entity\Manager\MediaManager">
+            <argument type="service" id="doctrine.orm.entity_manager"/>
+        </service>
+
+        <!-- Search Engine Manager -->
+        <service id="blogger_blog.search" class="%blogger_blog.search.class%" scope="request">
+            <argument type="service" id="request"/>
+            <argument type="service" id="solarium.client"/>
+        </service>
+
+    </services>
+
+</container>
